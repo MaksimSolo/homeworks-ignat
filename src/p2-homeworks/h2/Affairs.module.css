@@ -9,12 +9,9 @@
     width: 60px;
     background-color: lightgreen;
     font-weight: bold;
+    border-radius: 5px;
 }
 
-.button:focus {
-    background-color: peru;
-    font-weight: bold;
-}
 .active {
     background-color: peru;
     font-weight: bold;

@@ -31,8 +31,8 @@ function Affairs(props: AffairsPropsType) {
     const setLow = () => {
         props.setFilter('low')
     }
-    const setBtnClass = (filter:FilterType)=>{
-        return (`${s.button}${props.filter === filter? s.active:''}`)
+    const setBtnClass = (filter: FilterType) => {
+        return props.filter === filter ? (`${s.button} ${s.active}`) : (`${s.button}`)
     }
 
     return (

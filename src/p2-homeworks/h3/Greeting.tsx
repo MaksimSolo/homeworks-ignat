@@ -22,8 +22,8 @@ const Greeting: React.FC<GreetingPropsType> = (
                 <input value={name} onChange={setNameCallback} className={inputClass} onKeyPress={onKeyPressAddUser}/>
                 <span>{error && 'Error! Typing is expected'}</span>
             </div>
-            <div>
-                <button onClick={addUser}>add</button>
+            <div className={s.buttonContainer}>
+                <button className={s.button} onClick={addUser}>add</button>
                 <span>{totalUsers}</span>
             </div>
         </div>
