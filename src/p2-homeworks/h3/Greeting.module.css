@@ -1,7 +1,12 @@
 .someClass {
-
+    display: flex;
 }
 
 .error {
     border: 1px solid red;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
 }
