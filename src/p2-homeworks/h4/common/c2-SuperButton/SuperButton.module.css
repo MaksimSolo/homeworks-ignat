@@ -9,7 +9,7 @@
 
 .default {
     background: #5a6e4c;
-    color: #207a2b;
+    color: wheat;
     outline: none;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .button:disabled {
-    color: #5a6e4c;
+    color: wheat;
     cursor: auto;
 }
 
