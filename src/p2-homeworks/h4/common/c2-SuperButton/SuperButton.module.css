@@ -22,6 +22,9 @@
     margin: 10px;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 5px;
+    min-width: 60px;
+    font-size: large;
 }
 
 .button::after {
@@ -43,7 +46,7 @@
 }
 
 .button:hover::after {
-    animation: blink 0.35s ease;
+    animation: blink 0.50s ease;
 }
 
 .button:hover::before {

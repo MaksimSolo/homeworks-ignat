@@ -1,8 +1,13 @@
 import React, {useState} from 'react'
-import {homeWorkReducer} from './bll/homeWorkReducer'
+import {checkPeopleStateAC, homeWorkReducer, sortPeopleStateAC} from './bll/homeWorkReducer'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import s from './HW8.module.css'
 
-// export type UserType =
+export type PeopleType = {
+    _id: number
+    name: string
+    age: number
+}
 
 const initialPeople = [
     {_id: 0, name: 'Кот', age: 3},
@@ -14,28 +19,46 @@ const initialPeople = [
 ]
 
 function HW8() {
-    const [people, setPeople] = useState<any>(initialPeople) // need to fix any
+    const [people, setPeople] = useState<PeopleType[]>(initialPeople) // need to fix any
 
     // need to fix any
-    const finalPeople = people.map((p: any) => (
-        <div key={p._id}>
-            some name, age
+    const finalPeople = people.map((p: PeopleType) => (
+        <div key={p._id} className={s.people}>
+            <h3>
+                {p.name}
+            </h3>
+            <h3>
+                {p.age}
+            </h3>
         </div>
     ))
-
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}))
+    let age:number = 0;
+    const sortUp = () => setPeople(homeWorkReducer(initialPeople, sortPeopleStateAC('up')))
+    const sortDown = () => setPeople(homeWorkReducer(initialPeople, sortPeopleStateAC('down')))
+    const checkByAge = () => {
+        age = Number(prompt('type age which need to find up to:',));
+        setPeople(homeWorkReducer(initialPeople, checkPeopleStateAC(+age)))
+    }
 
     return (
         <div>
             <hr/>
-            homeworks 8
+            <article className={s.article}>
+                <h2>
+                    homeworks 8
+                </h2>
 
-            {/*should work (должно работать)*/}
-            {finalPeople}
+                {/*should work (должно работать)*/}
+                {finalPeople}
 
-            <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
-            check 18
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <SuperButton onClick={sortUp}>sort up</SuperButton>
+                    <SuperButton onClick={sortDown}>sort down</SuperButton>
+                    <SuperButton onClick={checkByAge}>up to {age!==0 ?`${age}`: '__'}</SuperButton>
+                </div>
+
+
+            </article>
 
             <hr/>
             {/*для личного творчества, могу проверить*/}
