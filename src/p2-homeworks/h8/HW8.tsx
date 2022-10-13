@@ -56,10 +56,7 @@ function HW8() {
                     <SuperButton onClick={sortDown}>sort down</SuperButton>
                     <SuperButton onClick={checkByAge}>up to {age!==0 ?`${age}`: '__'}</SuperButton>
                 </div>
-
-
             </article>
-
             <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativePeople/>*/}
